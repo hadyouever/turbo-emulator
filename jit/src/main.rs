@@ -72,6 +72,9 @@ pub trait JitBackend {
     fn init_guest_registers(&mut self, regs: Vec<ExtVarDesc>) -> Result<(), JitError>;
     fn get_guest_reg_desc(&mut self, idx: u64) -> Result<DataDesc, JitError>;
     fn get_guest_reg(&mut self, idx: u64) -> Result<u64, JitError>;
+    fn get_perm_reg_desc(&mut self, idx: usize) -> Result<DataDesc, JitError>;
+
+
 }
 pub trait JitOps: JitBackend {
     fn mov(&mut self, dst: DataDesc, src: DataDesc);
